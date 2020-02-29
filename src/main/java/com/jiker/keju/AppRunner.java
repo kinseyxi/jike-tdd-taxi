@@ -1,5 +1,9 @@
 package com.jiker.keju;
 
+import com.jiker.keju.service.TaxiService;
+
+import java.io.File;
+
 public class AppRunner {
 
     public static void main(String[] args) {
@@ -10,6 +14,8 @@ public class AppRunner {
          */
         String testDataFile = args[0];
         String receipt = "";
+        TaxiService taxiService = new TaxiService(new File(AppRunner.class.getClassLoader().getResource(testDataFile).getFile()));
+        receipt=taxiService.pay();
         System.out.println(receipt);
     }
 }
