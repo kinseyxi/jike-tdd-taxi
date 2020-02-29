@@ -32,7 +32,7 @@ dependencies {
         testImplementation "junit:junit:4.13"
         testImplementation "org.assertj:assertj-core:3.9.1"
     implementation 'junit:junit:4.12'
-//    implementation 'org.junit.jupiter:junit-jupiter-api'
+    implementation 'org.junit.jupiter:junit-jupiter-api'
 }
 
     checkstyle {
@@ -50,13 +50,13 @@ jacocoTestReport {
         xml.enabled = false
         csv.enabled = false
     }
-//    afterEvaluate {
-//        classDirectories.setFrom(files(classDirectories.files.collect {
-//            fileTree(dir: it, exclude: [
-//                    '**/AppRunner.class'
-//            ])
-//        }))
-//    }
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    '**/AppRunner.class'
+            ])
+        }))
+    }
   }
 
 jacocoTestCoverageVerification {
